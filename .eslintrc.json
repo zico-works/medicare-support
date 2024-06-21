@@ -33,7 +33,9 @@
         "react/no-array-index-key": "off",
         "linebreak-style": 0,
         "no-continue": "off",
+        "@typescript-eslint/no-use-before-define": "off",
         "consistent-return": "off",
+        "react/button-has-type": "off",
         "prefer-arrow-callback": 2,
         "no-confusing-arrow": "off",
         "no-underscore-dangle": "off",
@@ -113,6 +115,7 @@
         "@typescript-eslint/comma-dangle": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "no-use-before-define": "off",
+        "react/function-component-definition": "off",
         "@typescript-eslint/padding-line-between-statements": [
           "error",
           {
