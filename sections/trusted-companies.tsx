@@ -29,7 +29,7 @@ const TrustedCompanies = () => (
       Trusted By Top-rated insurance companies
     </h1>
 
-    <div className='mx-auto flex flex-wrap items-center justify-around gap-7'>
+    <div className='mx-auto flex max-w-[900px] flex-wrap items-center justify-around gap-7'>
       {LOGOS.map(({ alt, icon }) => (
         <div key={alt}>
           <Image
@@ -37,7 +37,7 @@ const TrustedCompanies = () => (
             className='object-contain max-sm:w-[100px]'
             height={70}
             src={`/icons/${icon}`}
-            width={140}
+            width={120}
           />
         </div>
       ))}
