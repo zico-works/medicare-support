@@ -1,3 +1,4 @@
+import Footer from '@/layout/footer';
 import Header from '@/layout/header';
 import type { Metadata } from 'next';
 
@@ -16,9 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${satoshi.className} text-primary-100`}>
+      <body className={`${satoshi.className} text-body`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

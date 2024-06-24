@@ -17,6 +17,9 @@ const config: Config = {
           400: '#344054',
           500: '#303864',
         },
+        body: {
+          DEFAULT: '#314564',
+        },
         tint: {
           DEFAULT: 'rgba(0, 0, 0, 0.1)',
           100: '#D0D5DD',

@@ -16,7 +16,7 @@ const Services = () => (
       Experience the Best in Health and Financial Services
     </p>
 
-    <div className='mt-10 grid grid-cols-3 gap-7'>
+    <div className='mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3'>
       {SERVICES.map(({ desc, icon, title }) => (
         <div className='rounded-xl border-[1.5px] border-primary p-4 transition duration-200 hover:bg-[#EFF7FF]'>
           <Image
