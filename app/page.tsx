@@ -1,5 +1,6 @@
 import About from '@/sections/about';
 import Contact from '@/sections/contact';
+import Faq from '@/sections/faq';
 import Hero from '@/sections/hero';
 import PopularPlans from '@/sections/popular-plans';
 import Services from '@/sections/services';
@@ -15,6 +16,7 @@ const Homepage = () => (
     <PopularPlans />
     <Contact />
     <Testimonial />
+    <Faq />
   </main>
 );
 
