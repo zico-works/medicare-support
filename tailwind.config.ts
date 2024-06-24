@@ -14,10 +14,12 @@ const config: Config = {
         primary: {
           DEFAULT: '#336699',
           100: '#6f7d93',
+          400: '#344054',
           500: '#303864',
         },
         tint: {
           DEFAULT: 'rgba(0, 0, 0, 0.1)',
+          100: '#D0D5DD',
         },
       },
       container: {
