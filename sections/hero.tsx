@@ -50,7 +50,7 @@ const Hero = () => (
     </div>
     <img
       alt=''
-      className='!absolute top-0 -z-10 w-full object-center max-md:h-[70vh] lg:h-[120vh]'
+      className='!absolute top-0 -z-10 w-full object-center max-md:h-[90vh] lg:h-[120vh]'
       src='/images/hero.webp'
     />
   </section>

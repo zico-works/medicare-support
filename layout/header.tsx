@@ -1,5 +1,6 @@
 import Button from '@/components/button';
 import Logo from '@/components/logo';
+import Modal from '@/components/modal';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,7 +24,10 @@ const Header = () => (
           </a>
         </span>
       </p>
-      <Button type='button'>Get a Quote</Button>
+
+      <Modal>
+        <Button type='button'>Get a Quote</Button>
+      </Modal>
     </div>
 
     <button className='md:hidden' type='button'>
