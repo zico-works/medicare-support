@@ -1,9 +1,11 @@
 import { Bricolage_Grotesque } from 'next/font/google';
 import localFont from 'next/font/local';
 
-export const inter = Bricolage_Grotesque({
+export const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: ['400', '600', '700'],
+  variable: '--font-brocolage',
+  display: 'swap',
 });
 
 export const satoshi = localFont({
