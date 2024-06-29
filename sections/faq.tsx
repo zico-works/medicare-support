@@ -1,21 +1,14 @@
-import { bricolage } from '@/app/font';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { cn } from '@/utils/cn';
 
 const Faq = () => (
   <section className='container mt-24' id='about'>
     <p className='text-center text-[#ff2020]'>FAQs</p>
-    <h1
-      className={cn(
-        bricolage.className,
-        'lg:text-6xl text-3xl text-center pt-2 sm:text-4xl text-[#336699] font-medium',
-      )}
-    >
+    <h1 className='pt-2 text-center font-bricolage text-3xl font-medium text-[#336699] sm:text-4xl lg:text-6xl'>
       Frequently asked questions
     </h1>
 

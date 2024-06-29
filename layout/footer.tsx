@@ -1,6 +1,4 @@
-import { bricolage } from '@/app/font';
 import Logo from '@/components/logo';
-import { cn } from '@/utils/cn';
 import Link from 'next/link';
 import { BiLogoSkype } from 'react-icons/bi';
 import { CgFacebook } from 'react-icons/cg';
@@ -34,12 +32,7 @@ const Footer = () => (
         <div className='flex gap-x-32'>
           {NAVS.map(({ children, title }) => (
             <div>
-              <h1
-                className={cn(
-                  'text-xl font-bold text-primary-500',
-                  bricolage.className,
-                )}
-              >
+              <h1 className='font-bricolage text-xl font-bold text-primary-500'>
                 {title}
               </h1>
 
@@ -69,15 +62,15 @@ const NAVS = [
     children: [
       {
         label: 'Home',
-        href: '/',
+        href: '#home',
       },
       {
         label: 'Services',
-        href: '/',
+        href: '#services',
       },
       {
         label: 'About',
-        href: '/',
+        href: '#about',
       },
     ],
   },

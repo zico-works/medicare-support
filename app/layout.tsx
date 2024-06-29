@@ -2,7 +2,7 @@ import Footer from '@/layout/footer';
 import Header from '@/layout/header';
 import type { Metadata } from 'next';
 
-import { satoshi } from './font';
+import { bricolage, satoshi } from './font';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -16,8 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={`${satoshi.className} text-body`}>
+    <html className='scroll-smooth' lang='en'>
+      <body
+        className={`${satoshi.className} ${bricolage.variable} text-body`}
+      >
         <Header />
         {children}
         <Footer />

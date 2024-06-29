@@ -1,5 +1,5 @@
-import { bricolage } from '@/app/font';
 import Button from '@/components/button';
+import Modal from '@/components/modal';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 
@@ -7,8 +7,7 @@ const Hero = () => (
   <section className='relative pt-32 text-white'>
     <h1
       className={cn(
-        'font-bold lg:text-6xl md:text-4xl max-sm:max-w-xs max-w-xl text-3xl mx-auto text-center',
-        bricolage.className,
+        'font-bold lg:text-6xl md:text-4xl max-sm:max-w-xs max-w-xl text-3xl mx-auto text-center font-bricolage',
       )}
     >
       Find Your Ideal Insurance Plan
@@ -20,18 +19,20 @@ const Hero = () => (
     </p>
 
     <div className='mt-5 flex items-center justify-center'>
-      <Button className='group flex items-center gap-2 px-8 py-[10px]'>
-        <span>Get a Quote</span>
-        <span className='transition duration-200 group-hover:translate-x-1'>
-          <Image
-            alt='arrow'
-            className=''
-            height={15}
-            src='/icons/arrow-right.svg'
-            width={15}
-          />
-        </span>
-      </Button>
+      <Modal>
+        <Button className='group flex items-center gap-2 px-8 py-[10px]'>
+          <span>Get a Quote</span>
+          <span className='transition duration-200 group-hover:translate-x-1'>
+            <Image
+              alt='arrow'
+              className=''
+              height={15}
+              src='/icons/arrow-right.svg'
+              width={15}
+            />
+          </span>
+        </Button>
+      </Modal>
     </div>
 
     <div className='mx-auto mt-7 flex items-center justify-center gap-3'>

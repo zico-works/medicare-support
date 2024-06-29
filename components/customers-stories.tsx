@@ -53,7 +53,7 @@ const ClientStories = () => {
             </div>
           ))}
         </Slider>
-        <div className='flex items-center gap-x-4 pl-5 sm:justify-center'>
+        <div className='flex items-center justify-center gap-x-4 pl-5'>
           {TESTIMONIALS.map((_, index) => (
             <button
               key={index}

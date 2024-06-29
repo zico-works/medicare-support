@@ -1,5 +1,7 @@
+'use client';
+
+import { useStepDetails } from '@/contexts/step-details-context';
 import { cn } from '@/utils/cn';
-import React from 'react';
 
 import FirstDetails from './first-details';
 import FourthDetails from './fourth-details';
@@ -26,28 +28,30 @@ const DETAILS = [
 ];
 
 const StepDetails = () => {
-  const [activeComponent, setActiveComponent] = React.useState(1);
-
-  console.log(setActiveComponent);
+  const { activeDetailsComponent } = useStepDetails();
 
   const filteredSteps = DETAILS.filter(
-    (steps) => steps.id === activeComponent,
+    (steps) => steps.id === activeDetailsComponent,
   );
 
   return (
     <div className='mt-6'>
       <div className='flex items-center justify-center text-2xl text-primary-400'>
-        {activeComponent}{' '}
+        {activeDetailsComponent}{' '}
         <span
           className={cn(
-            activeComponent === DETAILS.length ? '' : 'text-tint-200',
+            activeDetailsComponent === DETAILS.length
+              ? ''
+              : 'text-tint-200',
           )}
         >
           /
         </span>
         <span
           className={cn(
-            activeComponent === DETAILS.length ? '' : 'text-tint-200',
+            activeDetailsComponent === DETAILS.length
+              ? ''
+              : 'text-tint-200',
           )}
         >
           {DETAILS.length}

@@ -7,3 +7,18 @@
     text-wrap: balance;
   }
 }
+
+.slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  width: 860px;
+  /* width: 100%; */
+}
+
+.slides::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
