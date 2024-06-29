@@ -14,10 +14,16 @@ const config: Config = {
         primary: {
           DEFAULT: '#336699',
           100: '#6f7d93',
+          400: '#344054',
           500: '#303864',
+        },
+        body: {
+          DEFAULT: '#314564',
         },
         tint: {
           DEFAULT: 'rgba(0, 0, 0, 0.1)',
+          100: '#D0D5DD',
+          200: '#EAECF0',
         },
       },
       container: {
@@ -45,6 +51,20 @@ const config: Config = {
       },
       fontFamily: {
         bricolage: ['--font-brocolage', 'sans-serif'],
+      },
+      keyframes: {
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
   },

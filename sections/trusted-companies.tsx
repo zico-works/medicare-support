@@ -24,7 +24,7 @@ export const LOGOS = [
 ];
 
 const TrustedCompanies = () => (
-  <section className='container mt-44'>
+  <section className='container mt-56'>
     <h1 className='mx-auto mb-3 text-center text-2xl font-medium'>
       Trusted By Top-rated insurance companies
     </h1>
