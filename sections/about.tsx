@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const About = () => (
   <section
-    className='container mt-24 flex items-center justify-around gap-y-7 max-md:flex-col'
+    className='container mt-24 flex items-center justify-between gap-y-7 max-md:flex-col'
     id='about'
   >
     <div>

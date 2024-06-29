@@ -9,7 +9,7 @@ const Logo = ({
   src: string;
 }) => (
   <Link href={href}>
-    <Image alt='Medicare Logo' height={40} src={src} width={80} />
+    <Image alt='Medicare Logo' height={30} src={src} width={70} />
   </Link>
 );
 
