@@ -1,95 +1,77 @@
-import { bricolage } from '@/app/font';
-import Button from '@/components/button';
+'use client';
+
+import * as React from 'react';
+import RetailPlan from '@/components/retail-plan';
+import SchoolPlan from '@/components/school-plan';
+import SeniorCitizenPlan from '@/components/senior-citizen-plan';
+import { FamilySvg, LectureSvg, RelationSvg } from '@/components/svg';
 import { cn } from '@/utils/cn';
-import Image from 'next/image';
+import { AnimatePresence } from 'framer-motion';
+
+const PopularPlans = () => {
+  const [activePlan, setActivePlan] = React.useState('retail_plan');
+
+  return (
+    <section className='mt-24 bg-[#ebf0f5] py-16' id='about'>
+      <div className='container'>
+        <div>
+          <p className='text-center text-[#ff2020]'>
+            Get an Insurance Quote!
+          </p>
+          <h1 className='pt-2 text-center font-bricolage text-3xl font-medium text-[#336699] sm:text-4xl lg:text-6xl'>
+            Popular Plans
+          </h1>
+
+          <div className='mt-7 flex justify-center gap-20'>
+            {ICONS.map(({ Icon, label }) => (
+              <button
+                key={label}
+                aria-label={label}
+                className={cn(
+                  'flex size-[70px] items-center justify-center rounded-full border-[1.5px] border-solid border-[#336699]',
+                  activePlan === label
+                    ? 'bg-[#336699]'
+                    : 'bg-transparent',
+                )}
+                type='button'
+                onClick={() => setActivePlan(label)}
+              >
+                <Icon
+                  fill={activePlan === label ? '#fff' : '#336699'}
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <AnimatePresence>
+          {activePlan === 'retail_plan' && <RetailPlan />}
+          {activePlan === 'school_plan' && <SchoolPlan />}
+          {activePlan === 'senior-citizen_plan' && (
+            <SeniorCitizenPlan />
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+};
 
 const ICONS = [
   {
     alt: 'retails plan',
-    icon: 'family.svg',
+    Icon: FamilySvg,
+    label: 'retail_plan',
   },
   {
     alt: 'school plan',
-    icon: 'lecture.svg',
+    Icon: LectureSvg,
+    label: 'school_plan',
   },
   {
     alt: 'senior citizens plan',
-    icon: 'relation.svg',
+    Icon: RelationSvg,
+    label: 'senior-citizen_plan',
   },
 ];
-
-const PopularPlans = () => (
-  <section className='mt-24 bg-[#ebf0f5] py-16' id='about'>
-    <div className='container'>
-      <div>
-        <p className='text-center text-[#ff2020]'>
-          Get an Insurance Quote!
-        </p>
-        <h1
-          className={cn(
-            bricolage.className,
-            'lg:text-6xl text-3xl text-center pt-2 sm:text-4xl text-[#336699] font-medium',
-          )}
-        >
-          Popular Plans
-        </h1>
-
-        <div className='mt-7 flex justify-center gap-20'>
-          {ICONS.map(({ alt, icon }) => (
-            <div className='flex size-16 items-center justify-center rounded-full border-[1.5px] border-solid border-[#336699]'>
-              <Image
-                alt={alt}
-                height={60}
-                src={`/icons/${icon}`}
-                width={40}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className='mt-16 flex items-center justify-between gap-y-7 max-md:flex-col'>
-        <div>
-          <h2
-            className={cn(
-              bricolage.className,
-              'text-3xl lg:text-4xl text-primary-500 max-w-xs font-medium',
-            )}
-          >
-            For families and individuals.
-          </h2>
-          <p className='mb-4 mt-2 max-w-[420px]'>
-            Our Retail Plan is packaged to meet the health need of
-            families & individuals ensuring that they have access to
-            quality and affordable healthcare services while avoiding
-            the catastrophic risk of medical bills.
-          </p>
-
-          <Button className='group flex items-center gap-2 px-8 py-[10px]'>
-            <span>Get a Quote</span>
-            <span className='transition duration-200 group-hover:translate-x-1'>
-              <Image
-                alt='arrow'
-                className=''
-                height={15}
-                src='/icons/arrow-right.svg'
-                width={15}
-              />
-            </span>
-          </Button>
-        </div>
-
-        <div>
-          <Image
-            alt='smiling woman'
-            height={350}
-            src='/images/plan.webp'
-            width={400}
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-);
 
 export default PopularPlans;

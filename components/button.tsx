@@ -16,7 +16,7 @@ export interface ButtonProps
 const Button = ({ className, ...props }: ButtonProps) => (
   <button
     className={cn(
-      'focus:bg-primary py-2 px-6 active:bg-primary rounded-lg bg-primary text-white text-lg font-medium',
+      'focus:bg-primary/80 py-2 px-6 transition duration-300 active:bg-primary/80 hover:!text-white hover:bg-primary/80 rounded-lg bg-primary !text-white text-xl font-medium',
       className,
     )}
     {...props}

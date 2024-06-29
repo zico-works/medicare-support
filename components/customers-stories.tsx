@@ -53,7 +53,7 @@ const ClientStories = () => {
             </div>
           ))}
         </Slider>
-        <div className='flex items-center gap-x-4 pl-5 sm:justify-center'>
+        <div className='flex items-center justify-center gap-x-4 pl-5'>
           {TESTIMONIALS.map((_, index) => (
             <button
               key={index}
@@ -77,38 +77,24 @@ const ClientStories = () => {
 export const TESTIMONIALS = [
   {
     id: 0,
-    text: 'Sparkr digitals team are just amazing. We have had some personal websites and dashboards. ',
-    name: 'Luca Rossi',
-    address: 'Chief Technology Officer, CyberSecure Global',
+    text: 'Medicare made finding the right health insurance plan easy and stress-free. I couldn’t be happier with my choice.',
+    name: 'Sarah J.',
+    address: 'Happy Customer',
     alt: 'first',
   },
   {
     id: 1,
-    text: 'Sparkr digitals team are just amazing. We have had some personal websites and dashboards.',
-    name: 'Amara Okafor,',
-    address: 'Head of Digital Strategy, E-Comm Universe',
+    text: 'Overwhelmed by options, Medicare simplified everything. Knowledgeable agents helped me find affordable coverage',
+    name: 'Mark L.',
+    address: 'Satisfied Client',
     alt: 'second',
   },
   {
     id: 2,
-    text: 'Sparkr digitals team are just amazing. We have had some personal websites and dashboards.',
+    text: 'Switching to Medicare was my best decision. Outstanding customer service and a perfect plan fit.',
     name: 'Mia Wong',
     address: 'Marketing Director, EcoHealth Worldwide',
     alt: 'third',
-  },
-  {
-    id: 3,
-    text: 'Sparkr digitals team are just amazing. We have had some personal websites and dashboards.',
-    name: 'Aarav Patel',
-    address: 'Co-Founder, FinSolutions International',
-    alt: 'fourth',
-  },
-  {
-    id: 4,
-    text: 'Sparkr digitals team are just amazing. We have had some personal websites and dashboards.',
-    name: 'Liam Murphy',
-    address: 'Product Manager, SmartHome International',
-    alt: 'fifth',
   },
 ];
 

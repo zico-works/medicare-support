@@ -1,11 +1,24 @@
-import { Bricolage_Grotesque } from 'next/font/google';
 import localFont from 'next/font/local';
 
-export const bricolage = Bricolage_Grotesque({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-brocolage',
-  display: 'swap',
+export const bricolage = localFont({
+  src: [
+    {
+      path: '../public/font/BricolageGrotesque-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../public/font/BricolageGrotesque-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/font/BricolageGrotesque-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-bricolage',
 });
 
 export const satoshi = localFont({

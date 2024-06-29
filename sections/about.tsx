@@ -1,4 +1,3 @@
-import { bricolage } from '@/app/font';
 import { cn } from '@/utils/cn';
 import Image from 'next/image';
 
@@ -11,8 +10,7 @@ const About = () => (
       <span className='text-[#ff2020]'>Discover Medicare</span>
       <h1
         className={cn(
-          bricolage.className,
-          'lg:text-6xl text-3xl sm:text-4xl text-[#336699] font-medium',
+          'lg:text-6xl text-3xl font-bricolage sm:text-4xl text-[#336699] font-medium',
         )}
       >
         About us
@@ -25,7 +23,10 @@ const About = () => (
 
       <div className='mt-5 flex flex-col gap-3'>
         {DATA.map(({ desc, title }) => (
-          <div className='grid grid-cols-[auto_1fr] gap-3'>
+          <div
+            key={title}
+            className='grid grid-cols-[auto_1fr] gap-3'
+          >
             <Image
               alt='checked'
               height={24}

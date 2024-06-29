@@ -1,39 +1,61 @@
-import { bricolage } from '@/app/font';
+'use client';
+
 import { cn } from '@/utils/cn';
+import { childVariants, containerVariants } from '@/utils/motion';
+import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
+import React from 'react';
 
-const Services = () => (
-  <section className='container mt-24'>
-    <h1
-      className={cn(
-        bricolage.className,
-        'lg:text-6xl text-3xl text-center sm:text-4xl text-[#336699] font-medium',
-      )}
-    >
-      Why choose us
-    </h1>
-    <p className='mt-4 text-center text-lg'>
-      Experience the Best in Health and Financial Services
-    </p>
+const Services = () => {
+  const container = React.useRef<HTMLDivElement>(null);
+  const isInView = useInView(container, { once: true });
 
-    <div className='mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3'>
-      {SERVICES.map(({ desc, icon, title }) => (
-        <div className='rounded-xl border-[1.5px] border-primary p-4 transition duration-200 hover:bg-[#EFF7FF]'>
-          <Image
-            alt=''
-            height={30}
-            src={`/icons/${icon}`}
-            width={30}
-          />
-          <h2 className='mt-5 text-3xl font-medium text-primary-500'>
-            {title}
-          </h2>
-          <p className='mt-3'>{desc}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-);
+  return (
+    <section className='container mt-24' id='services'>
+      <h1
+        className={cn(
+          'lg:text-6xl font-bricolage text-3xl text-center sm:text-4xl text-primary font-medium',
+        )}
+      >
+        Why choose us
+      </h1>
+      <p className='mt-4 text-center text-lg'>
+        Experience the Best in Health and Financial Services
+      </p>
+
+      <div ref={container}>
+        {isInView && (
+          <motion.div
+            animate='visible'
+            className='mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3'
+            exit='exit'
+            initial='hidden'
+            variants={containerVariants}
+          >
+            {SERVICES.map(({ desc, icon, title }) => (
+              <motion.div
+                key={title}
+                className='rounded-xl border-[1.5px] border-primary p-4 transition duration-200 hover:bg-[#EFF7FF]'
+                variants={childVariants}
+              >
+                <Image
+                  alt=''
+                  height={30}
+                  src={`/icons/${icon}`}
+                  width={30}
+                />
+                <h2 className='mt-5 text-lg font-medium text-primary-500 md:text-3xl'>
+                  {title}
+                </h2>
+                <p className='mt-3'>{desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </div>
+    </section>
+  );
+};
 
 export const SERVICES = [
   {

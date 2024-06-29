@@ -24,6 +24,8 @@ const config: Config = {
           DEFAULT: 'rgba(0, 0, 0, 0.1)',
           100: '#D0D5DD',
           200: '#EAECF0',
+          300: '#667085',
+          400: '#344054',
         },
       },
       container: {
@@ -50,7 +52,7 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontFamily: {
-        bricolage: ['--font-brocolage', 'sans-serif'],
+        bricolage: ['var(--font-bricolage)'],
       },
       keyframes: {
         'accordion-down': {
