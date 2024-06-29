@@ -4,7 +4,7 @@ import { cn } from '@/utils/cn';
 import Image from 'next/image';
 
 const Hero = () => (
-  <div className='relative pt-20 text-white'>
+  <section className='relative pt-20 text-white'>
     <h1
       className={cn(
         'font-bold lg:text-6xl md:text-4xl max-sm:max-w-xs max-w-xl text-3xl mx-auto text-center',
@@ -53,7 +53,7 @@ const Hero = () => (
       className='!absolute top-0 -z-10 w-full object-center max-md:h-[70vh] lg:h-screen lg:object-cover'
       src='/images/hero.webp'
     />
-  </div>
+  </section>
 );
 
 export default Hero;
