@@ -10,6 +10,8 @@ import { DayPicker } from 'react-day-picker';
 
 /* eslint-disable react/no-unstable-nested-components */
 
+/* eslint-disable react/no-unstable-nested-components */
+
 export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
   className?: string;
   classNames?: {};

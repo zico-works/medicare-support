@@ -23,7 +23,10 @@ const About = () => (
 
       <div className='mt-5 flex flex-col gap-3'>
         {DATA.map(({ desc, title }) => (
-          <div className='grid grid-cols-[auto_1fr] gap-3'>
+          <div
+            key={title}
+            className='grid grid-cols-[auto_1fr] gap-3'
+          >
             <Image
               alt='checked'
               height={24}

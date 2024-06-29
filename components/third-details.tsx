@@ -6,6 +6,7 @@ import { cn } from '@/utils/cn';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { format } from 'date-fns';
 import { CalendarIcon } from 'lucide-react';
+import { DayPickerProvider } from 'react-day-picker';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -154,16 +155,18 @@ export default function ThirdDetails() {
                     align='start'
                     className='w-auto p-0'
                   >
-                    <Calendar
-                      initialFocus
-                      disabled={(date) =>
-                        date > new Date() ||
-                        date < new Date('1900-01-01')
-                      }
-                      mode='single'
-                      selected={field.value}
-                      onSelect={field.onChange}
-                    />
+                    <DayPickerProvider initialProps={{}}>
+                      <Calendar
+                        initialFocus
+                        disabled={(date) =>
+                          date > new Date() ||
+                          date < new Date('1900-01-01')
+                        }
+                        mode='single'
+                        selected={field.value}
+                        onSelect={field.onChange}
+                      />
+                    </DayPickerProvider>
                   </PopoverContent>
                 </Popover>
                 <FormMessage />

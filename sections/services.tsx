@@ -34,6 +34,7 @@ const Services = () => {
           >
             {SERVICES.map(({ desc, icon, title }) => (
               <motion.div
+                key={title}
                 className='rounded-xl border-[1.5px] border-primary p-4 transition duration-200 hover:bg-[#EFF7FF]'
                 variants={childVariants}
               >
