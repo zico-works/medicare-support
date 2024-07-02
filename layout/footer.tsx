@@ -18,7 +18,7 @@ const Footer = () => (
             <div className='mt-3 flex items-center gap-3'>
               {SOCIALS.map(({ href, icon }) => (
                 <Link
-                  className='flex size-8 items-center justify-center rounded-full bg-body text-white'
+                  className='flex size-9 items-center justify-center rounded-full bg-body text-white'
                   href={href}
                   target='_blank'
                 >
@@ -78,12 +78,12 @@ const NAVS = [
     title: 'Contact',
     children: [
       {
-        label: '(00) 123 456 7890',
+        label: '+440757 044-9180',
         href: '/',
       },
       {
-        label: 'user@domainname.com',
-        href: '/',
+        label: 'medicaresuportppc@gmail.com',
+        href: '',
       },
     ],
   },
@@ -92,7 +92,7 @@ const NAVS = [
 const SOCIALS = [
   {
     icon: <CgFacebook />,
-    href: '',
+    href: 'https://www.facebook.com/profile.php?id=61559206995584&sk=about_contact_and_basic_info',
   },
   {
     icon: <FaLinkedinIn />,
@@ -100,11 +100,11 @@ const SOCIALS = [
   },
   {
     icon: <BiLogoSkype />,
-    href: '',
+    href: 'https://join.skype.com/invite/BE4M5Sm3WaqK',
   },
   {
     icon: <FaInstagram />,
-    href: '',
+    href: 'https://www.instagram.com/medicaresupportmarketing?utm_source=qr&igsh=cmowaXA2bGxreTlh',
   },
 ];
 

@@ -12,6 +12,8 @@ import { DayPicker } from 'react-day-picker';
 
 /* eslint-disable react/no-unstable-nested-components */
 
+/* eslint-disable react/no-unstable-nested-components */
+
 export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
   className?: string;
   classNames?: {};
@@ -38,8 +40,8 @@ function Calendar({
           buttonVariants({ variant: 'outline' }),
           'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100',
         ),
-        nav_button_previous: 'absolute left-1',
-        nav_button_next: 'absolute right-1',
+        nav_button_previous: 'absolute left-1 !text-white',
+        nav_button_next: 'absolute right-1 !text-white',
         table: 'w-full border-collapse space-y-1',
         head_row: 'flex',
         head_cell:

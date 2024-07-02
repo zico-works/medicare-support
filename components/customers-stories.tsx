@@ -28,7 +28,7 @@ const ClientStories = () => {
                 </div>
 
                 <article className='mt-4'>
-                  <blockquote className='text-center text-xl text-primary-500 sm:pb-5 sm:text-[30px]'>
+                  <blockquote className='text-center text-xl text-primary-500 sm:pb-5 sm:text-3xl'>
                     {testimonial.text}
                   </blockquote>
 
@@ -79,21 +79,21 @@ export const TESTIMONIALS = [
     id: 0,
     text: 'Medicare made finding the right health insurance plan easy and stress-free. I couldn’t be happier with my choice.',
     name: 'Sarah J.',
-    address: 'Happy Customer',
+    address: 'Family Coverage Client',
     alt: 'first',
   },
   {
     id: 1,
     text: 'Overwhelmed by options, Medicare simplified everything. Knowledgeable agents helped me find affordable coverage',
     name: 'Mark L.',
-    address: 'Satisfied Client',
+    address: 'Auto Insurance Client',
     alt: 'second',
   },
   {
     id: 2,
     text: 'Switching to Medicare was my best decision. Outstanding customer service and a perfect plan fit.',
-    name: 'Mia Wong',
-    address: 'Marketing Director, EcoHealth Worldwide',
+    name: 'Michael T.',
+    address: 'Debt Settlement Client',
     alt: 'third',
   },
 ];

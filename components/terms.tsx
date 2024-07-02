@@ -12,6 +12,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { useStep } from '@/contexts/step-context';
+import { useStepDetails } from '@/contexts/step-details-context';
 import { cn } from '@/utils/cn';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -27,7 +28,13 @@ const FormSchema = z.object({
 });
 
 export default function CarrierSelection() {
-  const { activeComponent, setActiveComponent } = useStep();
+  const {
+    activeComponent,
+    setActiveComponent,
+    setShowModal,
+    showModal,
+  } = useStep();
+  const { setActiveDetailsComponent } = useStepDetails();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -41,6 +48,13 @@ export default function CarrierSelection() {
     }
 
     form.reset();
+  }
+
+  function onReset() {
+    setShowModal(!showModal);
+    form.reset();
+    setActiveComponent(1);
+    setActiveDetailsComponent(1);
   }
 
   return (
@@ -72,7 +86,7 @@ export default function CarrierSelection() {
                 authorize Medicare to submit your application for
                 health insurance. Be on the lookout for email
                 confirmations of your plan. If you have any questions,
-                please reach us at 877-999-5469.
+                please reach us at +440757 044-9180.
                 <br />
                 Thank you for your time, and welcome to the Medicare
                 family!
@@ -114,12 +128,20 @@ export default function CarrierSelection() {
               )}
             />
 
-            <div className='pt-4'>
+            <div className='space-y-5 pt-4'>
               <Button
                 className='flex w-full items-center justify-center gap-3'
                 type='submit'
               >
-                Next
+                Submit Your Quote
+              </Button>
+
+              <Button
+                className='flex w-full items-center justify-center gap-3 bg-[#c0d0df] !text-primary-600'
+                type='reset'
+                onClick={onReset}
+              >
+                Cancel
               </Button>
             </div>
           </form>

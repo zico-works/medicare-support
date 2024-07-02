@@ -2,10 +2,10 @@ import { ContactForm } from '@/components/contact-form';
 import Image from 'next/image';
 
 const Contact = () => (
-  <section className='bg-[#336699] pb-20 pt-10' id='contact'>
+  <section className='bg-[#1f3d5c] pb-20 pt-10' id='contact'>
     <div className='container'>
-      <div className='mt-14 flex items-center justify-between gap-y-7 text-white max-md:flex-col'>
-        <div>
+      <div className='mt-14 flex items-center justify-between gap-y-7 max-md:flex-col'>
+        <div className='text-white'>
           <h1 className='font-bricolage text-3xl font-medium sm:text-4xl lg:text-6xl'>
             Contact Us
           </h1>
@@ -22,7 +22,7 @@ const Contact = () => (
                 src='/icons/call.svg'
                 width={20}
               />
-              <span className='underline'>(316) 333-7001</span>
+              <span className='underline'>+440757 044-9180</span>
             </div>
             <div className='flex items-center gap-3'>
               <Image
@@ -31,7 +31,7 @@ const Contact = () => (
                 src='/icons/mail.svg'
                 width={20}
               />
-              <span>rasheed@yahoo.com</span>
+              <span>medicaresuportppc@gmail.com</span>
             </div>
           </div>
         </div>

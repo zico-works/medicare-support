@@ -1,3 +1,4 @@
+import Provider from '@/components/provider';
 import Footer from '@/layout/footer';
 import Header from '@/layout/header';
 import type { Metadata } from 'next';
@@ -20,8 +21,11 @@ export default function RootLayout({
       <body
         className={`${satoshi.className} ${bricolage.variable} text-body`}
       >
-        <Header />
-        {children}
+        <Provider>
+          <Header />
+          {children}
+        </Provider>
+
         <Footer />
       </body>
     </html>

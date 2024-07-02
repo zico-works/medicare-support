@@ -118,7 +118,7 @@ export default function FirstDetails() {
               className='flex w-full items-center justify-center gap-3'
               type='submit'
             >
-              Send Message
+              Next
             </Button>
           </div>
         </form>

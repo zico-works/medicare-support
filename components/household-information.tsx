@@ -105,7 +105,7 @@ export default function HouseholdInformation() {
               className='flex w-full items-center justify-center gap-3'
               type='submit'
             >
-              Send Message
+              Next
             </Button>
           </div>
         </form>

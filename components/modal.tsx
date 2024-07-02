@@ -3,21 +3,23 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import * as React from 'react';
 import { FormDataProvider } from '@/contexts/form-data-context';
-import StepContextProvider from '@/contexts/step-context';
+import { useStep } from '@/contexts/step-context';
 import StepDetailsContextProvider from '@/contexts/step-details-context';
 import { MdClose } from 'react-icons/md';
 
 import Steps from './steps';
 
 function Modal({ children }: { children: React.ReactNode }) {
+  const { showModal } = useStep();
+
   return (
-    <StepContextProvider>
-      <StepDetailsContextProvider>
-        <FormDataProvider>
-          <div>
-            <Dialog.Root>
-              <Dialog.Trigger asChild>{children}</Dialog.Trigger>
-              <Dialog.Portal>
+    <StepDetailsContextProvider>
+      <FormDataProvider>
+        <div>
+          <Dialog.Root>
+            <Dialog.Trigger asChild>{children}</Dialog.Trigger>
+            <Dialog.Portal>
+              {showModal ? (
                 <Dialog.Overlay className='fixed inset-0 z-[999] grid place-items-center overflow-y-auto overflow-x-hidden bg-[rgba(0,0,0,0.3)]'>
                   <Dialog.Content className='relative w-full min-w-[300px] rounded-3xl !bg-white p-[30px] sm:max-w-[925px]'>
                     <Dialog.Close asChild>
@@ -32,12 +34,12 @@ function Modal({ children }: { children: React.ReactNode }) {
                     <Steps />
                   </Dialog.Content>
                 </Dialog.Overlay>
-              </Dialog.Portal>
-            </Dialog.Root>
-          </div>
-        </FormDataProvider>
-      </StepDetailsContextProvider>
-    </StepContextProvider>
+              ) : null}
+            </Dialog.Portal>
+          </Dialog.Root>
+        </div>
+      </FormDataProvider>
+    </StepDetailsContextProvider>
   );
 }
 

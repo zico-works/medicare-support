@@ -11,10 +11,10 @@ const Services = () => {
   const isInView = useInView(container, { once: true });
 
   return (
-    <section className='container mt-24' id='services'>
+    <section className='container mt-20' id='services'>
       <h1
         className={cn(
-          'lg:text-6xl font-bricolage text-3xl text-center sm:text-4xl text-primary font-medium',
+          'lg:text-6xl font-bricolage text-3xl text-center sm:text-4xl text-primary-600 font-medium',
         )}
       >
         Why choose us

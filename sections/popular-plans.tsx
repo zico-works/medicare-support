@@ -12,13 +12,13 @@ const PopularPlans = () => {
   const [activePlan, setActivePlan] = React.useState('retail_plan');
 
   return (
-    <section className='mt-24 bg-[#ebf0f5] py-16' id='about'>
+    <section className='mt-20 bg-[#ebf0f5] py-16' id='about'>
       <div className='container'>
         <div>
           <p className='text-center text-[#ff2020]'>
             Get an Insurance Quote!
           </p>
-          <h1 className='pt-2 text-center font-bricolage text-3xl font-medium text-[#336699] sm:text-4xl lg:text-6xl'>
+          <h1 className='pt-2 text-center font-bricolage text-3xl font-medium text-primary-600 sm:text-4xl lg:text-6xl'>
             Popular Plans
           </h1>
 

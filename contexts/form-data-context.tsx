@@ -24,6 +24,7 @@ interface InitialType {
   occupation: string;
   phonenumber: string;
   spouseDOB: Date | undefined;
+  spousename: string;
   tribeType: string;
   userDOB: Date | undefined;
 }
@@ -40,6 +41,7 @@ const initialState: InitialType = {
   coverage: '',
   married: '',
   spouseDOB: undefined,
+  spousename: '',
   dependant: '',
   dependantDOB: undefined,
   dependantname: '',
