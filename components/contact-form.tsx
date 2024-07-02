@@ -1,7 +1,11 @@
 'use client';
 
+import emailjs from '@emailjs/browser';
 import { zodResolver } from '@hookform/resolvers/zod';
+import axios from 'axios';
+import React from 'react';
 import { useForm } from 'react-hook-form';
+import PhoneInput from 'react-phone-number-input';
 import { z } from 'zod';
 
 import Button from './button';
@@ -16,115 +20,110 @@ import {
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 
-const formSchema = z
-  .object({
-    fullname: z.string().regex(/^[\s'A-Za-z-]{4,50}$/, {
-      message: 'Specify your full name',
+const formSchema = z.object({
+  fullname: z.string().regex(/^[\s'A-Za-z-]{4,50}$/, {
+    message: 'Specify your full name',
+  }),
+  email: z
+    .string()
+    .regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, {
+      message: 'Please Enter a valid email address',
+    })
+    .min(5),
+  number: z.string().min(5, {
+    message: 'Phone number must be valid number',
+  }),
+  message: z
+    .string()
+    .min(10, {
+      message: 'message must be at least 10 characters.',
+    })
+    .max(560, {
+      message: 'Bio must not be longer than 560 characters.',
     }),
-    email: z
-      .string()
-      .regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, {
-        message: 'Please Enter a valid email address',
-      })
-      .min(5),
-    agreement: z.boolean().optional(),
-    number: z
-      .string()
-      .min(6, 'Please enter your mobile number')
-      .refine(
-        (value) => {
-          // Regular expression to match common phone number formats
-          const phoneNumberRegex =
-            /^\+?(\d{1,3})?[ .-]?\(?\d{3}\)?[ .-]?\d{3}[ .-]?\d{4}$/;
-
-          return phoneNumberRegex.test(value);
-        },
-        {
-          message: 'Please enter a valid phone number',
-          path: ['number'],
-        },
-      ),
-    how: z.string().optional(),
-    howType: z.enum(['linkedin', 'facebook', 'instagram', 'others']),
-    message: z.string(),
-  })
-  .refine(
-    (data) => {
-      if (data.howType && data.how) {
-        return data.howType === data.how.toLowerCase();
-      }
-
-      return true;
-    },
-    {
-      message: 'Please, select an option',
-      path: ['howType'],
-    },
-  );
+});
 
 export function ContactForm() {
+  const [success, setSuccess] = React.useState(false);
+  const [error, setError] = React.useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       fullname: '',
       email: '',
       number: '',
-      howType: undefined,
-      agreement: false,
+      message: '',
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log('sign in');
-    const { agreement, email, fullname, howType, number } = values;
+  function onSubmit(values: z.infer<typeof formSchema>, e: any) {
+    e.preventDefault();
+    setSuccess(false);
+    setError(false);
+    const { email, fullname, message, number } = values;
 
-    const data = {
-      full_name: fullname,
+    const template = {
+      name: fullname,
       email,
       number,
-      how: howType,
-      agreement,
-      message: '',
+      message,
     };
 
-    console.log(values);
-
-    if (agreement) {
-      const data = { email };
-
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_SERVICE_KEY!,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID!,
+        template,
+        process.env.NEXT_PUBLIC_KEY!,
+      )
+      .then(
+        () => {
+          setSuccess(true);
+          setError(false);
+          form.reset();
+          setTimeout(() => {
+            setSuccess(false);
+            setError(false);
+          }, 4000);
         },
-        body: JSON.stringify(data),
-      };
+        () => {
+          setTimeout(() => {
+            setError(false);
+          }, 4000);
+          setError(true);
+          setSuccess(false);
+        },
+      );
 
-      fetch('/api/newsletter', options)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log('Success:', data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+    const sheet = {
+      Name: fullname,
+      Email: email,
+      Phone: number,
+      Message: message,
     };
 
-    fetch('/api/course', options)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Success:', data);
+    axios
+      .post(
+        'https://sheet.best/api/sheets/9247c900-fd2f-45b0-bf33-12bdc2c1a3cd',
+        sheet,
+      )
+      .then(() => {
+        setSuccess(true);
+        setError(false);
+        form.reset();
+        setTimeout(() => {
+          setSuccess(false);
+          setError(false);
+        }, 4000);
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
+        setError(true);
+        setSuccess(false);
+        setTimeout(() => {
+          setError(false);
+        }, 4000);
+        setError(true);
+        setSuccess(false);
       });
 
     form.reset();
@@ -163,7 +162,7 @@ export function ContactForm() {
               <FormLabel>Email</FormLabel>
               <FormControl>
                 <Input
-                  placeholder='olivia@untitledui.com'
+                  placeholder='olivia@untitled.com'
                   type='email'
                   {...field}
                 />
@@ -177,14 +176,17 @@ export function ContactForm() {
           control={form.control}
           name='number'
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Phone number</FormLabel>
+            <FormItem className='w-full'>
+              <FormLabel>Phone Number</FormLabel>
               <FormControl>
-                <Input
-                  placeholder='Phone Number*'
-                  type='number'
-                  {...field}
-                />
+                <div className='flex h-11 items-center rounded-lg border border-solid border-tint-200 pl-4 !text-[#101010]'>
+                  <PhoneInput
+                    international
+                    defaultCountry='RU'
+                    {...field}
+                    className='w-full !outline-none focus:!outline-none'
+                  />
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -209,6 +211,19 @@ export function ContactForm() {
           )}
         />
 
+        <div>
+          {success && (
+            <p className='text-green-600'>
+              Your message has been sent Successfully.
+            </p>
+          )}
+          {error && (
+            <p className='text-red-500'>
+              Some error occurred. Please send me a direct message
+              using the email
+            </p>
+          )}
+        </div>
         <Button
           className='flex items-center justify-center gap-3'
           type='submit'

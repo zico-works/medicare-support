@@ -22,3 +22,52 @@
   width: 0px;
   height: 0px;
 }
+
+.PhoneInputInput {
+  /* outline: none; */
+  color: black;
+}
+
+.hero_background {
+  background: url('/images/hero.webp');
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero_background::before {
+  content: '';
+  background-image: url('/images/blur.webp');
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker-ignore-onclickoutside {
+  width: 100%;
+  outline: 1px #eaecf0 solid !important;
+}
+
+.PhoneInputInput {
+  height: 30px;
+  outline: 1px #eaecf0 solid !important;
+}
+
+.react-datepicker__view-calendar-icon input {
+  padding: 6px 40px 5px 45px !important;
+}
+
+@media screen and (max-width: 420px) {
+  .hero_background {
+    background: url('/images/hero_small.webp');
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+}

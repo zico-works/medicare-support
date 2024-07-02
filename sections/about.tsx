@@ -3,22 +3,23 @@ import Image from 'next/image';
 
 const About = () => (
   <section
-    className='container mt-24 flex items-center justify-between gap-y-7 max-md:flex-col'
+    className='container mt-20 flex items-center justify-between gap-y-7 max-md:flex-col'
     id='about'
   >
     <div>
       <span className='text-[#ff2020]'>Discover Medicare</span>
       <h1
         className={cn(
-          'lg:text-6xl text-3xl font-bricolage sm:text-4xl text-[#336699] font-medium',
+          'lg:text-6xl text-3xl font-bricolage sm:text-4xl text-primary-600 font-medium',
         )}
       >
         About us
       </h1>
       <p className='max-w-[420px]'>
-        At Medicare, we make finding insurance simple and stress-free.
-        Our team of dedicated professionals is here to help you
-        navigate the best options tailored to your needs.
+        Various businesses encounter challenges in acquiring new
+        customers due to poor-quality leads. MSM sets itself apart by
+        delivering quality traffic call that connects you directly
+        with highly dedicated and precisely targeted prospects.
       </p>
 
       <div className='mt-5 flex flex-col gap-3'>

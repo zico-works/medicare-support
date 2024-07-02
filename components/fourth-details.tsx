@@ -3,16 +3,13 @@
 import { useFormData } from '@/contexts/form-data-context';
 import { useStep } from '@/contexts/step-context';
 import { useStepDetails } from '@/contexts/step-details-context';
-import { cn } from '@/utils/cn';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { format } from 'date-fns';
-import { CalendarIcon } from 'lucide-react';
-import { useForm } from 'react-hook-form';
+import DatePicker from 'react-datepicker';
+import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import Button from './button';
 import PrevBtn from './prev-btn';
-import { Calendar } from './ui/calendar';
 import {
   Form,
   FormControl,
@@ -22,12 +19,9 @@ import {
   FormMessage,
 } from './ui/form';
 import { Input } from './ui/input';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from './ui/popover';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
+
+import 'react-datepicker/dist/react-datepicker.css';
 
 const formSchema = z.object({
   dependant: z.enum(['yes', 'no'], {
@@ -127,47 +121,23 @@ export default function FourthDetails() {
             )}
           />
 
-          <FormField
+          <Controller
             control={form.control}
             name='dependantDOB'
             render={({ field }) => (
               <FormItem className='flex flex-col'>
-                <FormLabel>Dependant Date of Birth</FormLabel>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <FormControl>
-                      <button
-                        className={cn(
-                          'w-full pl-3 text-left font-normal flex items-center border-tint-200 border-solid border h-10 rounded-lg',
-                          !field.value && 'text-muted-foreground',
-                        )}
-                        type='button'
-                      >
-                        {field.value ? (
-                          format(field.value, 'PPP')
-                        ) : (
-                          <span>Pick a date</span>
-                        )}
-                        <CalendarIcon className='ml-auto mr-2 size-4 opacity-50' />
-                      </button>
-                    </FormControl>
-                  </PopoverTrigger>
-                  <PopoverContent
-                    align='start'
-                    className='w-auto p-0'
-                  >
-                    <Calendar
-                      initialFocus
-                      disabled={(date) =>
-                        date > new Date() ||
-                        date < new Date('1900-01-01')
-                      }
-                      mode='single'
+                <FormLabel>Dependant of Birth</FormLabel>
+                <FormControl>
+                  <div className='flex h-11 items-center rounded-lg border border-solid border-tint-200 pl-4'>
+                    <DatePicker
+                      showIcon
+                      calendarClassName='bg-tint-100'
+                      calendarIconClassName='size-6 !text-tint-100'
                       selected={field.value}
-                      onSelect={field.onChange}
+                      onChange={field.onChange}
                     />
-                  </PopoverContent>
-                </Popover>
+                  </div>
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
@@ -178,7 +148,7 @@ export default function FourthDetails() {
               className='flex w-full items-center justify-center gap-3'
               type='submit'
             >
-              Send Message
+              Next
             </Button>
           </div>
         </form>

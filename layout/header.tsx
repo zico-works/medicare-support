@@ -1,54 +1,73 @@
+'use client';
+
 import Button from '@/components/button';
 import { Drawer } from '@/components/drawer';
 import Logo from '@/components/logo';
 import Modal from '@/components/modal';
+import { useStep } from '@/contexts/step-context';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Header = () => (
-  <header
-    className='container flex items-center justify-between py-3'
-    id='home'
-  >
-    <Logo href='/' src='/icons/logo.svg' />
+const Header = () => {
+  const { setShowModal } = useStep();
 
-    <Navbar />
+  return (
+    <header
+      className='container flex items-center justify-between py-3'
+      id='home'
+    >
+      <Logo href='/' src='/icons/logo.svg' />
 
-    <div className='flex items-center gap-x-6 max-md:hidden'>
-      <p className='flex items-center gap-3'>
-        <Image
-          alt='phone'
-          height={20}
-          src='/icons/phone.svg'
-          width={20}
-        />
-        <span>
-          <a
-            className='text-[#07040E] underline'
-            href='tel:555-555-5555'
+      <Navbar />
+
+      <div className='flex items-center gap-x-6 max-md:hidden'>
+        <p className='flex items-center gap-3'>
+          <Image
+            alt='phone'
+            height={20}
+            src='/icons/phone.svg'
+            width={20}
+          />
+          <span>
+            <a
+              className='border-b border-solid border-[#07040E] font-semibold text-[#07040E]'
+              href='tel:555-555-5555'
+            >
+              +440757 044-9180
+            </a>
+          </span>
+        </p>
+
+        <Modal>
+          <Button type='button' onClick={() => setShowModal(true)}>
+            Get a Quote
+          </Button>
+        </Modal>
+      </div>
+
+      <div className='flex items-center gap-4 sm:hidden'>
+        <Modal>
+          <Button
+            className='px-5 !text-base'
+            type='button'
+            onClick={() => setShowModal(true)}
           >
-            (316) 333-7001
-          </a>
-        </span>
-      </p>
+            Get a Quote
+          </Button>
+        </Modal>
 
-      <Modal>
-        <Button type='button'>Get a Quote</Button>
-      </Modal>
-    </div>
-
-    <div className='sm:hidden'>
-      <Drawer>
-        <Image
-          alt='menu'
-          height={25}
-          src='/icons/hamburger.svg'
-          width={25}
-        />
-      </Drawer>
-    </div>
-  </header>
-);
+        <Drawer>
+          <Image
+            alt='menu'
+            height={25}
+            src='/icons/hamburger.svg'
+            width={25}
+          />
+        </Drawer>
+      </div>
+    </header>
+  );
+};
 
 const NAVS = [
   {

@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-import Button from './button';
-import Modal from './modal';
+import PlanBtn from './plan-btn';
 
 const SeniorCitizenPlan = () => (
   <motion.div
@@ -22,20 +21,7 @@ const SeniorCitizenPlan = () => (
         retirement through access to good and affordable healthcare.
       </p>
 
-      <Modal>
-        <Button className='group flex items-center gap-2 px-8 py-[10px]'>
-          <span>Get a Quote</span>
-          <span className='transition duration-200 group-hover:translate-x-1'>
-            <Image
-              alt='arrow'
-              className=''
-              height={15}
-              src='/icons/arrow-right.svg'
-              width={15}
-            />
-          </span>
-        </Button>
-      </Modal>
+      <PlanBtn />
     </div>
 
     <div>

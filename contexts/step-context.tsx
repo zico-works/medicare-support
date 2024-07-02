@@ -3,11 +3,15 @@ import * as React from 'react';
 interface StepContextProp {
   activeComponent: number;
   setActiveComponent: React.Dispatch<React.SetStateAction<number>>;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  showModal: boolean;
 }
 
 export const StepContext = React.createContext<StepContextProp>({
   activeComponent: 1,
   setActiveComponent: () => {},
+  showModal: true,
+  setShowModal: () => {},
 });
 
 const StepContextProvider = ({
@@ -16,10 +20,16 @@ const StepContextProvider = ({
   children: React.ReactNode;
 }) => {
   const [activeComponent, setActiveComponent] = React.useState(1);
+  const [showModal, setShowModal] = React.useState(true);
 
   const context = React.useMemo(
-    () => ({ activeComponent, setActiveComponent }),
-    [activeComponent, setActiveComponent],
+    () => ({
+      activeComponent,
+      setActiveComponent,
+      showModal,
+      setShowModal,
+    }),
+    [activeComponent, setActiveComponent, showModal, setShowModal],
   );
 
   return (

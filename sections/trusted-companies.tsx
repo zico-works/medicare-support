@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
 const TrustedCompanies = () => (
-  <section className='container mt-56 max-sm:mt-60'>
-    <h1 className='mx-auto mb-3 text-center text-2xl font-medium text-primary-500'>
+  <section className='container mt-16'>
+    <h1 className='mx-auto mb-6 text-center text-2xl font-medium text-primary-500'>
       Trusted By Top-rated insurance companies
     </h1>
 
@@ -12,9 +12,9 @@ const TrustedCompanies = () => (
           <Image
             alt={alt}
             className='object-contain max-sm:w-[100px]'
-            height={70}
-            src={`/icons/${icon}`}
-            width={120}
+            height={60}
+            src={`/images/${icon}`}
+            width={90}
           />
         </div>
       ))}
@@ -30,23 +30,23 @@ type LogoProp = {
 export const LOGOS: LogoProp[] = [
   {
     alt: 'buy domains',
-    icon: 'emnetwork.svg',
+    icon: 'buy.svg',
   },
   {
     alt: 'buy domains',
-    icon: 'emnetwork.svg',
+    icon: 'em.svg',
   },
   {
     alt: 'unik media group',
-    icon: 'unik.svg',
+    icon: 'mk.png',
   },
   {
     alt: 'Business lead maker',
-    icon: 'blm.svg',
+    icon: 'bm.png',
   },
   {
     alt: 'Mk insure',
-    icon: 'mkinsure.svg',
+    icon: 'umg.png',
   },
 ];
 
