@@ -19,7 +19,7 @@ const StepContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [activeComponent, setActiveComponent] = React.useState(6);
+  const [activeComponent, setActiveComponent] = React.useState(1);
   const [showModal, setShowModal] = React.useState(true);
 
   const context = React.useMemo(
