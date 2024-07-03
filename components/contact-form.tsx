@@ -1,6 +1,5 @@
 'use client';
 
-import emailjs from '@emailjs/browser';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import React from 'react';
@@ -61,39 +60,6 @@ export function ContactForm() {
     setSuccess(false);
     setError(false);
     const { email, fullname, message, number } = values;
-
-    const template = {
-      name: fullname,
-      email,
-      number,
-      message,
-    };
-
-    emailjs
-      .send(
-        process.env.NEXT_PUBLIC_SERVICE_KEY!,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID!,
-        template,
-        process.env.NEXT_PUBLIC_KEY!,
-      )
-      .then(
-        () => {
-          setSuccess(true);
-          setError(false);
-          form.reset();
-          setTimeout(() => {
-            setSuccess(false);
-            setError(false);
-          }, 4000);
-        },
-        () => {
-          setTimeout(() => {
-            setError(false);
-          }, 4000);
-          setError(true);
-          setSuccess(false);
-        },
-      );
 
     const sheet = {
       Name: fullname,

@@ -28,9 +28,9 @@ const RetailPlan = () => (
     <div>
       <Image
         alt='smiling woman'
-        height={350}
+        height={300}
         src='/images/plan.webp'
-        width={400}
+        width={450}
       />
     </div>
   </motion.div>

@@ -46,7 +46,7 @@ const FAQs = [
   {
     title: 'How do I know if I qualify for Medicare?',
     label:
-      'Getting a quote with Medicare is easy! Simply fill out our online form, and one of our licensed agents will reach out to you with personalized options.',
+      'You generally qualify for Medicare if you are 65 or older, or under 65 with certain disabilities. For other insurance types, eligibility varies, and our licensed agents can help you determine your eligibility.',
   },
   {
     title: 'How do I enroll in a Medicare plan?',

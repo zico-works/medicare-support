@@ -8,14 +8,33 @@
   }
 }
 
+.step::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.step {
+  -webkit-overflow-scrolling: touch;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .slides {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  width: 860px;
+  width: 900px;
   /* width: 100%; */
+}
+
+.slides {
+  -webkit-overflow-scrolling: touch;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .slides::-webkit-scrollbar {

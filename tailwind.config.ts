@@ -23,6 +23,7 @@ const config: Config = {
         },
         tint: {
           DEFAULT: 'rgba(0, 0, 0, 0.1)',
+          50: '#EFF7FF',
           100: '#D0D5DD',
           200: '#EAECF0',
           300: '#667085',

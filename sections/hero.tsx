@@ -10,7 +10,7 @@ const Hero = () => {
   const { setShowModal } = useStep();
 
   return (
-    <section className='hero_background relative max-w-[1748px] py-32 text-white'>
+    <section className='hero_background relative mt-16 max-w-[1748px] py-32 text-white'>
       <div className='relative z-50'>
         <h1
           className={cn(

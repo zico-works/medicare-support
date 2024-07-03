@@ -7,7 +7,6 @@ const About = () => (
     id='about'
   >
     <div>
-      <span className='text-[#ff2020]'>Discover Medicare</span>
       <h1
         className={cn(
           'lg:text-6xl text-3xl font-bricolage sm:text-4xl text-primary-600 font-medium',
