@@ -44,6 +44,8 @@ export default function FourthDetails() {
     },
   });
 
+  const dependant = form.watch('dependant');
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     setFormData({ ...formData, ...values });
 
@@ -113,7 +115,8 @@ export default function FourthDetails() {
                     placeholder='Enter dependant full name'
                     type='text'
                     {...field}
-                    required={form.getValues().dependant === 'yes'}
+                    disabled={dependant === 'no'}
+                    required={dependant === 'yes'}
                   />
                 </FormControl>
                 <FormMessage />
@@ -133,6 +136,8 @@ export default function FourthDetails() {
                       showIcon
                       calendarClassName='bg-tint-100'
                       calendarIconClassName='size-6 !text-tint-100'
+                      disabled={dependant === 'no'}
+                      required={dependant === 'yes'}
                       selected={field.value}
                       onChange={field.onChange}
                     />

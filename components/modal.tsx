@@ -20,7 +20,7 @@ function Modal({ children }: { children: React.ReactNode }) {
             <Dialog.Trigger asChild>{children}</Dialog.Trigger>
             <Dialog.Portal>
               {showModal ? (
-                <Dialog.Overlay className='fixed inset-0 z-[999] grid place-items-center overflow-y-auto overflow-x-hidden bg-[rgba(0,0,0,0.3)]'>
+                <Dialog.Overlay className='fixed inset-0 z-[9999] grid place-items-center overflow-y-auto overflow-x-hidden bg-[rgba(0,0,0,0.3)]'>
                   <Dialog.Content className='relative w-full min-w-[300px] rounded-3xl !bg-white p-[30px] sm:max-w-[925px]'>
                     <Dialog.Close asChild>
                       <button

@@ -5,7 +5,7 @@ import { CgFacebook } from 'react-icons/cg';
 import { FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
 
 const Footer = () => (
-  <footer className='mt-24 bg-[#ebf0f5] py-14'>
+  <footer className='mt-24 bg-tint-50 py-14'>
     <div className='container'>
       <div className='mb-16 flex justify-between gap-y-6 max-md:flex-col'>
         <div>
@@ -29,7 +29,7 @@ const Footer = () => (
           </div>
         </div>
 
-        <div className='flex gap-x-32'>
+        <div className='flex gap-x-32 gap-y-6 max-sm:flex-col'>
           {NAVS.map(({ children, title }) => (
             <div>
               <h1 className='font-bricolage text-xl font-bold text-primary-500'>
@@ -58,7 +58,7 @@ const Footer = () => (
 
 const NAVS = [
   {
-    title: 'About',
+    title: 'Company',
     children: [
       {
         label: 'Home',

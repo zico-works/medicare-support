@@ -42,6 +42,8 @@ export default function ThirdDetails() {
     },
   });
 
+  const married = form.watch('married');
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     setFormData({ ...formData, ...values });
 
@@ -111,7 +113,8 @@ export default function ThirdDetails() {
                     placeholder='Enter spouse full name'
                     type='text'
                     {...field}
-                    required={form.getValues().married === 'yes'}
+                    disabled={married === 'no'}
+                    required={married === 'yes'}
                   />
                 </FormControl>
                 <FormMessage />
@@ -131,6 +134,8 @@ export default function ThirdDetails() {
                       showIcon
                       calendarClassName='bg-tint-100'
                       calendarIconClassName='size-6 !text-tint-100'
+                      disabled={married === 'no'}
+                      required={married === 'yes'}
                       selected={field.value}
                       onChange={field.onChange}
                     />

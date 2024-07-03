@@ -13,57 +13,59 @@ const Header = () => {
 
   return (
     <header
-      className='container flex items-center justify-between py-3'
+      className='fixed inset-x-0 top-0 z-[999] bg-white py-3'
       id='home'
     >
-      <Logo href='/' src='/icons/logo.svg' />
+      <div className='container flex items-center justify-between'>
+        <Logo href='/' src='/icons/logo.svg' />
 
-      <Navbar />
+        <Navbar />
 
-      <div className='flex items-center gap-x-6 max-md:hidden'>
-        <p className='flex items-center gap-3'>
-          <Image
-            alt='phone'
-            height={20}
-            src='/icons/phone.svg'
-            width={20}
-          />
-          <span>
-            <a
-              className='border-b border-solid border-[#07040E] font-semibold text-[#07040E]'
-              href='tel:555-555-5555'
+        <div className='flex items-center gap-x-6 max-md:hidden'>
+          <p className='flex items-center gap-3'>
+            <Image
+              alt='phone'
+              height={20}
+              src='/icons/phone.svg'
+              width={20}
+            />
+            <span>
+              <a
+                className='border-b border-solid border-[#07040E] font-semibold text-[#07040E]'
+                href='tel:555-555-5555'
+              >
+                +440757 044-9180
+              </a>
+            </span>
+          </p>
+
+          <Modal>
+            <Button type='button' onClick={() => setShowModal(true)}>
+              Get a Quote
+            </Button>
+          </Modal>
+        </div>
+
+        <div className='flex items-center gap-4 sm:hidden'>
+          <Modal>
+            <Button
+              className='px-5 !text-base'
+              type='button'
+              onClick={() => setShowModal(true)}
             >
-              +440757 044-9180
-            </a>
-          </span>
-        </p>
+              Get a Quote
+            </Button>
+          </Modal>
 
-        <Modal>
-          <Button type='button' onClick={() => setShowModal(true)}>
-            Get a Quote
-          </Button>
-        </Modal>
-      </div>
-
-      <div className='flex items-center gap-4 sm:hidden'>
-        <Modal>
-          <Button
-            className='px-5 !text-base'
-            type='button'
-            onClick={() => setShowModal(true)}
-          >
-            Get a Quote
-          </Button>
-        </Modal>
-
-        <Drawer>
-          <Image
-            alt='menu'
-            height={25}
-            src='/icons/hamburger.svg'
-            width={25}
-          />
-        </Drawer>
+          <Drawer>
+            <Image
+              alt='menu'
+              height={25}
+              src='/icons/hamburger.svg'
+              width={25}
+            />
+          </Drawer>
+        </div>
       </div>
     </header>
   );

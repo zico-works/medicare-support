@@ -76,7 +76,7 @@ const Steps = () => {
           <StepsHeader />
         )}
       </div>
-      <div className='overflow-x-auto'>
+      <div className='step overflow-x-auto'>
         <div className='slides max-sm:-ml-10'>
           {activeComponent === STEPS.length - 1 ||
           activeComponent === STEPS.length
