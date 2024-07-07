@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className='scroll-smooth' lang='en'>
+    <html className='no-visible-scrollbar scroll-smooth' lang='en'>
       <body
         className={`${satoshi.className} ${bricolage.variable} text-body`}
       >
