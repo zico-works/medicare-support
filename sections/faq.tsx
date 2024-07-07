@@ -1,3 +1,4 @@
+import SlideInAnimation from '@/components/slide-in-animation';
 import {
   Accordion,
   AccordionContent,
@@ -6,16 +7,21 @@ import {
 } from '@/components/ui/accordion';
 
 const Faq = () => (
-  <section className='container mt-24' id='about'>
-    <p className='text-center text-[#ff2020]'>FAQs</p>
-    <h1 className='pt-2 text-center font-bricolage text-3xl font-medium text-primary-600 sm:text-4xl lg:text-5xl'>
+  <section
+    className='container mt-24 grid grid-cols-1 gap-y-5 md:grid-cols-[0.6fr_1fr]'
+    id='about'
+  >
+    <SlideInAnimation
+      as='h1'
+      className='pt-2 font-bricolage text-3xl font-medium text-primary-600 sm:text-4xl lg:text-5xl'
+    >
       Frequently asked questions
-    </h1>
+    </SlideInAnimation>
 
-    <div className='mx-auto mt-10 max-w-2xl'>
+    <SlideInAnimation className='mx-auto w-full max-w-lg' id='faq'>
       {FAQs.map(({ label, title }, idx) => (
         <Accordion type='multiple'>
-          <AccordionItem value={`item-${idx}`}>
+          <AccordionItem className='' value={`item-${idx}`}>
             <AccordionTrigger>
               <span className='text-left'>{title}</span>
             </AccordionTrigger>
@@ -23,7 +29,7 @@ const Faq = () => (
           </AccordionItem>
         </Accordion>
       ))}
-    </div>
+    </SlideInAnimation>
   </section>
 );
 

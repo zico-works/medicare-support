@@ -145,7 +145,7 @@ export function ContactForm() {
             <FormItem className='w-full'>
               <FormLabel>Phone Number</FormLabel>
               <FormControl>
-                <div className='flex h-11 items-center rounded-lg border border-solid border-tint-200 pl-4 !text-[#101010]'>
+                <div className='flex h-11 items-center rounded-lg border border-solid border-tint-100 pl-4 !text-[#101010]'>
                   <PhoneInput
                     international
                     defaultCountry='RU'

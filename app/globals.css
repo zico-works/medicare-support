@@ -8,6 +8,31 @@
   }
 }
 
+/* UTILITY CLASS */
+.background {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.about-bg {
+  background-image: url('/images/about-blur-bg.webp');
+}
+
+.no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.bg-footer {
+  background-image: url('/images/footer-blur.webp');
+}
+
 .step::-webkit-scrollbar {
   width: 0px;
   height: 0px;
@@ -47,14 +72,14 @@
   color: black;
 }
 
-.hero_background {
+.hero-background {
   background: url('/images/hero.webp');
   width: 100%;
   background-size: cover;
   background-position: center;
 }
 
-.hero_background::before {
+.hero-background::before {
   content: '';
   background-image: url('/images/blur.webp');
   top: 0;
@@ -76,6 +101,7 @@
 .PhoneInputInput {
   height: 30px;
   outline: 1px #eaecf0 solid !important;
+  background-color: transparent;
 }
 
 .react-datepicker__view-calendar-icon input {

@@ -41,7 +41,7 @@ const AccordionTrigger = React.forwardRef<
         {...props}
         onClick={() => setActive(!active)}
       >
-        {children}
+        <p className='max-w-sm text-left'>{children}</p>
         {active ? (
           <Plus className='size-4 shrink-0 transition-transform duration-200' />
         ) : (
@@ -65,7 +65,7 @@ const AccordionContent = React.forwardRef<
     className='overflow-hidden px-3 pt-2 text-sm transition-all duration-200 data-[state=open]:mb-5 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down data-[state=open]:bg-tint-50'
     {...props}
   >
-    <div className={cn('pb-4 pt-0 md:text-2xl text-lg', className)}>
+    <div className={cn('pb-4 pt-0 md:text-xl text-lg', className)}>
       {children}
     </div>
   </AccordionPrimitive.Content>

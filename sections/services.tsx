@@ -1,57 +1,49 @@
 'use client';
 
+import * as React from 'react';
 import { cn } from '@/utils/cn';
-import { childVariants, containerVariants } from '@/utils/motion';
-import { motion, useInView } from 'framer-motion';
-import Image from 'next/image';
-import React from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Services = () => {
   const container = React.useRef<HTMLDivElement>(null);
-  const isInView = useInView(container, { once: true });
+  const { scrollYProgress } = useScroll({
+    target: container,
+  });
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useLayoutEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+      setIsMobile(true);
+    }
+  }, [isMobile]);
+
+  const x = useTransform(scrollYProgress, [0, 1], ['1%', '-95%']);
 
   return (
     <section className='container mt-20' id='services'>
-      <h1
-        className={cn(
-          'lg:text-6xl font-bricolage text-3xl text-center sm:text-4xl text-primary-600 font-medium',
-        )}
-      >
-        Why choose us
-      </h1>
-      <p className='mt-4 text-center text-lg'>
-        Experience the Best in Health and Financial Services
-      </p>
-
-      <div ref={container}>
-        {isInView && (
+      <div ref={container} className='relative md:h-[300vh]'>
+        <div className='sticky left-0 top-32 flex items-center overflow-hidden md:h-[40vh]'>
           <motion.div
-            animate='visible'
-            className='mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3'
-            exit='exit'
-            initial='hidden'
-            variants={containerVariants}
+            className='flex gap-4 max-md:flex-col'
+            style={isMobile ? undefined : { x }}
           >
-            {SERVICES.map(({ desc, icon, title }) => (
-              <motion.div
+            {SERVICES.map(({ color, desc, title }, idx) => (
+              <div
                 key={title}
-                className='rounded-xl border-[1.5px] border-primary p-4 transition duration-200 hover:bg-[#EFF7FF]'
-                variants={childVariants}
+                className={cn(
+                  'flex flex-col justify-center rounded-xl p-4 transition duration-200 hover:bg-[#EFF7FF]',
+                  idx === 0 ? 'md:w-48' : 'md:w-[500px]',
+                )}
+                style={{ background: color }}
               >
-                <Image
-                  alt=''
-                  height={30}
-                  src={`/icons/${icon}`}
-                  width={30}
-                />
-                <h2 className='mt-5 text-lg font-medium text-primary-500 md:text-3xl'>
+                <h1 className='text-2xl font-semibold text-primary-750 sm:text-3xl lg:text-4xl'>
                   {title}
-                </h2>
-                <p className='mt-3'>{desc}</p>
-              </motion.div>
+                </h1>
+                <p className='mt-3 text-2xl'>{desc}</p>
+              </div>
             ))}
           </motion.div>
-        )}
+        </div>
       </div>
     </section>
   );
@@ -59,44 +51,53 @@ const Services = () => {
 
 export const SERVICES = [
   {
-    icon: 'medi-check.svg',
+    title: 'Why choose us',
+    color: '#fff',
+  },
+  {
     title: 'Medicare',
     desc: 'We offer personalized health insurance solutions, ensuring you get the best coverage for your needs.',
+    color: '#FEECED',
   },
   {
-    icon: 'bird.svg',
+    title: 'ACA - Obama Care',
+    desc: 'Get access to affordable care through the ACA, ensuring coverage for all essential health benefits.',
+    color: '#FEF8EC',
+  },
+  {
     title: 'FE – Final Expense',
     desc: 'Our final expense plans ensure your loved ones are financially protected during tough times.',
-  },
-  {
-    icon: 'help.svg',
-    title: 'SSDI',
-    desc: 'We assist you in applying for Social Security Disability Insurance, securing your financial future.',
+    color: '#FEEBFF',
   },
   {
     icon: 'doc.svg',
-    title: 'ACA - Obama Care',
-    desc: 'Get access to affordable care through the ACA, ensuring coverage for all essential health benefits.',
+    title: 'SSDI',
+    desc: 'We assist you in applying for Social Security Disability Insurance, securing your financial future.',
+    color: '#EEF9FC',
   },
   {
     icon: 'motor.svg',
     title: 'Auto Insurance',
     desc: 'Protect yourself and your vehicle with our reliable and comprehensive auto insurance policies.',
+    color: '#EDF1FD',
   },
   {
     icon: 'settle.svg',
     title: 'Debt Settlement',
     desc: 'Our debt settlement services help you manage and reduce your financial liabilities effectively.',
+    color: '#FEF8EC',
   },
   {
     icon: 'people.svg',
     title: 'U65 Health Insurance',
     desc: 'We offer specialized plans for those under 65, providing flexible and affordable coverage options.',
+    color: '#DEFCF9',
   },
   {
     icon: 'tax.svg',
     title: 'Tax Debt',
     desc: 'Our experts help you navigate and resolve tax debt issues efficiently, easing your financial burden.',
+    color: '#FAF0F8',
   },
 ];
 
