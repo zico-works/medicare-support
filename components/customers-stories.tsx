@@ -13,42 +13,47 @@ const ClientStories = () => {
 
   return (
     <div className='mt-8 w-full overflow-x-hidden'>
-      <div className='relative mx-auto max-w-5xl'>
+      <div className='relative'>
         <Slider {...settings} ref={sliderRef} aria-live='polite'>
           {TESTIMONIALS.map((testimonial) => (
-            <div key={testimonial.id} className='cursor-pointer p-4'>
-              <div className='p-4'>
-                <div>
-                  <Image
-                    alt='Image of the testimonial quote icon'
-                    height={40}
-                    src='/icons/block-1.svg'
-                    width={40}
-                  />
-                </div>
-
-                <article className='mt-4'>
-                  <blockquote className='text-center text-xl text-primary-500 sm:pb-5 sm:text-3xl'>
-                    {testimonial.text}
-                  </blockquote>
-
-                  <div className='flex justify-end'>
+            <div
+              key={testimonial.id}
+              className='flex items-center justify-center'
+            >
+              <div className='mx-auto max-w-5xl cursor-pointer p-4'>
+                <div className='p-4'>
+                  <div>
                     <Image
                       alt='Image of the testimonial quote icon'
                       height={40}
-                      src='/icons/block-2.svg'
+                      src='/icons/block-1.svg'
                       width={40}
                     />
                   </div>
-                </article>
-              </div>
-              <div className='flex flex-col items-center'>
-                <h2 className='text-[20px] font-medium leading-[30px] text-primary lg:leading-9'>
-                  {testimonial.name}
-                </h2>
-                <p className='leading-6 text-primary-500 opacity-[70%]'>
-                  {testimonial.address}
-                </p>
+
+                  <article className='mt-4'>
+                    <blockquote className='text-center text-xl text-primary-500 sm:pb-5 sm:text-3xl'>
+                      {testimonial.text}
+                    </blockquote>
+
+                    <div className='flex justify-end'>
+                      <Image
+                        alt='Image of the testimonial quote icon'
+                        height={40}
+                        src='/icons/block-2.svg'
+                        width={40}
+                      />
+                    </div>
+                  </article>
+                </div>
+                <div className='flex flex-col items-center'>
+                  <h2 className='text-[20px] font-medium leading-[30px] text-primary lg:leading-9'>
+                    {testimonial.name}
+                  </h2>
+                  <p className='leading-6 text-primary-500 opacity-[70%]'>
+                    {testimonial.address}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

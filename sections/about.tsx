@@ -1,22 +1,17 @@
 'use client';
 
-import * as React from 'react';
 import SlideInAnimation from '@/components/slide-in-animation';
 import { cn } from '@/utils/cn';
-import { childVariants, containerVariants } from '@/utils/motion';
-import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 
-const About = () => {
-  const container = React.useRef<HTMLDivElement>(null);
-  const isInView = useInView(container, { once: true });
-
-  return (
-    <section className='about-bg background' id='about'>
-      <div className='container mt-20 flex items-center justify-between gap-y-7 py-20 max-md:flex-col-reverse'>
+const About = () => (
+  <section className='px-3 lg:px-6' id='about'>
+    <div className='about-bg background rounded-3xl'>
+      <div className='container mt-20 grid grid-cols-2 items-center gap-x-10 gap-y-7 py-20 2xl:gap-x-20'>
         <SlideInAnimation>
           <Image
             alt='A customer care'
+            className='w-full'
             height={550}
             src='/images/about-image.webp'
             width={450}
@@ -45,48 +40,36 @@ const About = () => {
             prospects.
           </SlideInAnimation>
 
-          <div ref={container}>
-            <SlideInAnimation
-              className='mt-5 flex flex-col gap-3'
-              delay={0.4}
-            >
-              {isInView && (
-                <motion.div
-                  animate='visible'
-                  exit='exit'
-                  initial='hidden'
-                  variants={containerVariants}
-                >
-                  {DATA.map(({ desc, title }) => (
-                    <motion.div
-                      key={title}
-                      className='grid grid-cols-[auto_1fr] gap-3'
-                      variants={childVariants}
-                    >
-                      <Image
-                        alt='checked'
-                        height={24}
-                        src='/icons/check.svg'
-                        width={24}
-                      />
+          <SlideInAnimation
+            className='mt-5 flex flex-col gap-3'
+            delay={0.4}
+          >
+            {DATA.map(({ desc, title }) => (
+              <div
+                key={title}
+                className='grid grid-cols-[auto_1fr] gap-3'
+              >
+                <Image
+                  alt='checked'
+                  height={24}
+                  src='/icons/check.svg'
+                  width={24}
+                />
 
-                      <div>
-                        <h2 className='text-lg font-medium text-[#303864] lg:text-xl'>
-                          {title}
-                        </h2>
-                        <p>{desc}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              )}
-            </SlideInAnimation>
-          </div>
+                <div>
+                  <h2 className='text-lg font-medium text-[#303864] lg:text-xl'>
+                    {title}
+                  </h2>
+                  <p>{desc}</p>
+                </div>
+              </div>
+            ))}
+          </SlideInAnimation>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export const DATA = [
   {

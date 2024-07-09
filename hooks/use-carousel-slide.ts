@@ -7,8 +7,8 @@ const useCarouselSlide = () => {
   const settings = {
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 7000,
-    speed: 2000,
+    autoplaySpeed: 5000,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     beforeChange: (current: any, next: any) => {
