@@ -7,7 +7,7 @@ import Testimonial from '@/sections/testimonial';
 import TrustedCompanies from '@/sections/trusted-companies';
 
 const Homepage = () => (
-  <main>
+  <main className='2xl:pr-6'>
     <Hero />
     <TrustedCompanies />
     <About />

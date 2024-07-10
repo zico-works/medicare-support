@@ -5,11 +5,14 @@ import { Drawer } from '@/components/drawer';
 import Logo from '@/components/logo';
 import Modal from '@/components/modal';
 import { useStep } from '@/contexts/step-context';
+import useLenisScroll from '@/hooks/use-lenis-scroll';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const Header = () => {
   const { setShowModal } = useStep();
+
+  useLenisScroll();
 
   return (
     <header

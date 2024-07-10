@@ -35,13 +35,13 @@ const AccordionTrigger = React.forwardRef<
       <AccordionPrimitive.Trigger
         ref={ref}
         className={cn(
-          'flex flex-1 items-center justify-between py-4 transition-all [&[data-state=open]]:text-white text-primary-500 text-xl md:text-2xl duration-200 px-3 [&[data-state=open]]:bg-primary [&[data-state=open]>svg]:rotate-180',
+          'flex flex-1 items-center justify-between py-4 transition-all text-primary-500 text-xl md:text-2xl duration-200 px-3 [&[data-state=open]]:bg-[#ebf0f5] [&[data-state=open]>svg]:rotate-180',
           className,
         )}
         {...props}
         onClick={() => setActive(!active)}
       >
-        <p className='max-w-sm text-left'>{children}</p>
+        {children}
         {active ? (
           <Plus className='size-4 shrink-0 transition-transform duration-200' />
         ) : (
@@ -62,7 +62,7 @@ const AccordionContent = React.forwardRef<
 >(({ children, className, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
-    className='overflow-hidden px-3 pt-2 text-sm transition-all duration-200 data-[state=open]:mb-5 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down data-[state=open]:bg-tint-50'
+    className='overflow-hidden px-3 pt-2 text-sm transition-all duration-200 data-[state=open]:mb-5 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down data-[state=open]:bg-transparent'
     {...props}
   >
     <div className={cn('pb-4 pt-0 md:text-xl text-lg', className)}>
