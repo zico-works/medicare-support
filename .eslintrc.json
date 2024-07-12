@@ -33,7 +33,6 @@
         "react/no-array-index-key": "off",
         "linebreak-style": 0,
         "no-continue": "off",
-        "jsx-a11y/media-has-caption": "off",
         "@typescript-eslint/no-use-before-define": "off",
         "consistent-return": "off",
         "react/button-has-type": "off",
