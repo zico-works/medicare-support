@@ -19,7 +19,7 @@ const Faq = () => (
       className='mx-auto mt-10 w-full max-w-3xl'
       id='faq'
     >
-      <Accordion type='single'>
+      <Accordion collapsible type='single'>
         <AccordionItem className='' value='item-1'>
           <AccordionTrigger>
             <span className='text-left'>

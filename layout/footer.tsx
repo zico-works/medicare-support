@@ -17,20 +17,11 @@ const Footer = () => (
             </h2>
 
             <div>
-              <h3 className='text-[22px] font-medium text-[##84878B]'>
+              <h3 className='text-[22px] font-medium text-[#84878B]'>
                 Contact:
               </h3>
 
               <div className='mt-2'>
-                <address className='mb-2'>
-                  <a
-                    className='border-b border-solid border-primary-600 font-semibold text-[#ed3f3f]'
-                    href='tel:555-555-5555'
-                  >
-                    +440757 044-9180
-                  </a>
-                </address>
-
                 <Link
                   className='border-b border-solid border-primary-600 font-semibold text-[#1d3956]'
                   href='mailto:medicaresuportppc@gmail.com?subject=Pre-filled Subject&body=Please%20enter%20your%20message%20here.'
@@ -41,7 +32,10 @@ const Footer = () => (
             </div>
           </div>
 
-          <div className='w-full max-w-md rounded-3xl font-medium'>
+          <div
+            className='w-full max-w-md rounded-3xl font-medium'
+            id='contact'
+          >
             <ContactForm />
           </div>
         </div>

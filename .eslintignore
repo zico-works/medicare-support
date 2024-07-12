@@ -14,6 +14,7 @@ server
 
 .eslintrc.js
 next.config.js
+next-sitemap.config.js
 commitlint.config.js
-postcss.config.js
+postcss.config.js'
 
