@@ -57,7 +57,7 @@ export default function SecondDetails() {
   }
 
   return (
-    <div className='mx-auto mt-5 max-w-lg rounded-2xl border-[1.5px] border-solid border-tint-200 p-5'>
+    <div className='mx-auto mt-3 max-w-lg rounded-2xl border-[1.5px] border-solid border-tint-200 p-5'>
       <div>
         <PrevBtn
           handleClick={() =>

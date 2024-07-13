@@ -50,6 +50,7 @@
         "operator-linebreak": "off",
         "unicorn/prefer-spread": "off",
         "unicorn/no-nested-ternary": "off",
+        "jsx-a11y/media-has-caption": "off",
         "padding-line-between-statements": [
           "error",
           {

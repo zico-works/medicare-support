@@ -3,7 +3,7 @@
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import * as React from 'react';
 import { cn } from '@/utils/cn';
-import { Minus, Plus } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const Accordion = AccordionPrimitive.Root;
 
@@ -27,30 +27,21 @@ const AccordionTrigger = React.forwardRef<
   React.ComponentPropsWithoutRef<
     typeof AccordionPrimitive.Trigger
   > & { className?: string }
->(({ children, className, ...props }, ref) => {
-  const [active, setActive] = React.useState(true);
-
-  return (
-    <AccordionPrimitive.Header className='flex'>
-      <AccordionPrimitive.Trigger
-        ref={ref}
-        className={cn(
-          'flex flex-1 items-center justify-between py-4 transition-all text-primary-500 text-xl md:text-2xl duration-200 px-3 [&[data-state=open]]:bg-[#ebf0f5] [&[data-state=open]>svg]:rotate-180',
-          className,
-        )}
-        {...props}
-        onClick={() => setActive(!active)}
-      >
-        {children}
-        {active ? (
-          <Plus className='size-4 shrink-0 transition-transform duration-200' />
-        ) : (
-          <Minus className='size-4 shrink-0 transition-transform duration-200' />
-        )}
-      </AccordionPrimitive.Trigger>
-    </AccordionPrimitive.Header>
-  );
-});
+>(({ children, className, ...props }, ref) => (
+  <AccordionPrimitive.Header className='flex'>
+    <AccordionPrimitive.Trigger
+      ref={ref}
+      className={cn(
+        'flex flex-1 items-center justify-between py-4 transition-all text-primary-500 text-xl md:text-2xl duration-200 px-3 [&[data-state=open]]:bg-[#ebf0f5] [&[data-state=open]>svg]:rotate-180',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+      <ChevronDown size={20} />
+    </AccordionPrimitive.Trigger>
+  </AccordionPrimitive.Header>
+));
 
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 

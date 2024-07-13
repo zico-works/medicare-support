@@ -35,13 +35,13 @@ const StepDetails = () => {
   );
 
   return (
-    <div className='mt-6'>
-      <div className='flex items-center justify-center text-2xl text-primary-400'>
+    <div className='mt-3'>
+      <div className='flex items-center justify-center gap-1 text-sm text-primary-400'>
         {activeDetailsComponent}{' '}
         <span
           className={cn(
             activeDetailsComponent === DETAILS.length
-              ? ''
+              ? 'font-bold'
               : 'text-tint-200',
           )}
         >

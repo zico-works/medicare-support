@@ -29,8 +29,7 @@ const formSchema = z.object({
 
 export default function CoverageDetails() {
   const { formData, setFormData } = useFormData();
-  const { activeDetailsComponent, setActiveDetailsComponent } =
-    useStepDetails();
+  const { setActiveDetailsComponent } = useStepDetails();
   const { activeComponent, setActiveComponent } = useStep();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -49,11 +48,7 @@ export default function CoverageDetails() {
   return (
     <div className='mx-auto mt-5 max-w-lg rounded-2xl border-[1.5px] border-solid border-tint-200 p-5'>
       <div>
-        <PrevBtn
-          handleClick={() =>
-            setActiveDetailsComponent(activeDetailsComponent - 1)
-          }
-        />
+        <PrevBtn handleClick={() => setActiveDetailsComponent(4)} />
       </div>
       <Form {...form}>
         <form

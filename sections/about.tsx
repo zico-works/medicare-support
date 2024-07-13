@@ -7,7 +7,7 @@ import Image from 'next/image';
 const About = () => (
   <section className='px-3 lg:px-6' id='about'>
     <div className='about-bg background rounded-3xl'>
-      <div className='container mt-20 grid grid-cols-2 items-center gap-x-10 gap-y-7 py-20 2xl:gap-x-20'>
+      <div className='container mt-20 grid grid-cols-1 items-center gap-x-10 gap-y-7 py-20 md:grid-cols-2 2xl:gap-x-20'>
         <SlideInAnimation>
           <Image
             alt='A customer care'

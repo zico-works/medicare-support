@@ -26,14 +26,13 @@ const PopularPlans = () => (
 
         <div className='mt-10 space-y-16'>
           {PLANS.map(({ desc, icon, image, layout, plan, title }) => (
-            <SlideInAnimation
+            <div
               key={plan}
               className={cn(
                 'grid grid-cols-1 gap-x-12 2xl:gap-x-20 sm:grid-cols-2 items-center gap-y-7',
               )}
-              delay={0.5}
             >
-              <div
+              <SlideInAnimation
                 className={cn(
                   layout === 'row-reverse'
                     ? 'order-last'
@@ -47,10 +46,10 @@ const PopularPlans = () => (
                   src={`/images/${image}`}
                   width={450}
                 />
-              </div>
+              </SlideInAnimation>
 
               <div>
-                <div className='mb-3 flex w-fit items-center gap-2 rounded-lg border-[1.5px] border-solid border-primary-700 px-3 py-1'>
+                <SlideInAnimation className='mb-3 flex w-fit items-center gap-2 rounded-lg border-[1.5px] border-solid border-primary-700 px-3 py-1'>
                   <div className='flex size-9 items-center justify-center rounded-full bg-primary-600'>
                     <Image
                       alt={plan}
@@ -63,15 +62,17 @@ const PopularPlans = () => (
                   <p className='font-medium text-primary-600'>
                     {plan}
                   </p>
-                </div>
-                <h2 className='max-w-sm font-bricolage text-3xl font-medium capitalize text-primary-500 lg:text-4xl'>
+                </SlideInAnimation>
+                <SlideInAnimation className='max-w-sm font-bricolage text-3xl font-medium capitalize text-primary-500 lg:text-4xl'>
                   {title}
-                </h2>
-                <p className='mb-4 mt-2 max-w-[500px]'>{desc}</p>
+                </SlideInAnimation>
+                <SlideInAnimation className='mb-4 mt-2 max-w-[500px]'>
+                  {desc}
+                </SlideInAnimation>
 
                 <PlanBtn />
               </div>
-            </SlideInAnimation>
+            </div>
           ))}
         </div>
       </div>

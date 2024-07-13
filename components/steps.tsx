@@ -69,7 +69,7 @@ const Steps = () => {
   );
 
   return (
-    <div className='mt-14'>
+    <div className='mt-5'>
       <div>
         {activeComponent === STEPS.length - 1 ||
         activeComponent === STEPS.length ? null : (
@@ -91,7 +91,7 @@ const Steps = () => {
                     className={cn(
                         activeComponent === id ||
                           activeComponent > idx
-                          ? 'border-[#e0f3f0] border-[5px] border-solid rounded-full'
+                          ? 'border-[#e0f3f0] border-[3px] border-solid rounded-full'
                           : '',
                         'relative z-[50]',
                       )}
@@ -106,7 +106,7 @@ const Steps = () => {
                     >
                       <div
                         className={cn(
-                            'flex size-10 items-center justify-center rounded-full ',
+                            'flex size-5 items-center justify-center rounded-full',
                             activeComponent === id ||
                               activeComponent > idx
                               ? 'bg-tint-200'
@@ -117,15 +117,15 @@ const Steps = () => {
                           <div>
                             <Image
                               alt='checked'
-                              height={25}
+                              height={20}
                               src='icons/green-check.svg'
-                              width={25}
+                              width={20}
                             />
                           </div>
                           ) : (
                             <div
                               className={cn(
-                                'size-3 rounded-full',
+                                'size-2 rounded-full',
                                 activeComponent === id ||
                                   activeComponent > idx
                                   ? 'bg-[#31b099]'
@@ -139,21 +139,21 @@ const Steps = () => {
 
                   <div
                     className={cn(
-                        'absolute top-1/2 w-[135px] h-[4px] -translate-y-1/2',
+                        'absolute top-1/2 w-[155px] h-[4px] -translate-y-1/2',
                         activeComponent > idx + 1
                           ? 'bg-[#31b099]'
                           : 'bg-tint-100',
                         activeComponent === id ||
                           activeComponent > idx
-                          ? 'left-12'
-                          : 'left-10',
+                          ? 'left-7'
+                          : 'left-5',
                         filteredStepped.length === id && 'hidden',
                       )}
                   />
                 </div>
                 <p
                   className={cn(
-                      'font-semibold',
+                      'text-sm',
                       activeComponent === id || activeComponent > idx
                         ? 'text-primary-500'
                         : 'text-tint-200',
