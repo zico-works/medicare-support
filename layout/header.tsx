@@ -34,7 +34,7 @@ const Header = () => {
                 className='border-b border-solid border-[#07040E] font-semibold text-[#07040E]'
                 href='tel:+13342474890'
               >
-                +13342474890
+                +1 (334) 247-4890
               </a>
             </span>
           </p>
