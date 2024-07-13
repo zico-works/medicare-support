@@ -32,21 +32,23 @@ const PopularPlans = () => (
                 'grid grid-cols-1 gap-x-12 2xl:gap-x-20 sm:grid-cols-2 items-center gap-y-7',
               )}
             >
-              <SlideInAnimation
+              <div
                 className={cn(
                   layout === 'row-reverse'
                     ? 'order-last'
                     : 'md:order-first order-last',
                 )}
               >
-                <Image
-                  alt='smiling woman'
-                  className='w-full'
-                  height={300}
-                  src={`/images/${image}`}
-                  width={450}
-                />
-              </SlideInAnimation>
+                <SlideInAnimation>
+                  <Image
+                    alt='smiling woman'
+                    className='w-full'
+                    height={300}
+                    src={`/images/${image}`}
+                    width={450}
+                  />
+                </SlideInAnimation>
+              </div>
 
               <div>
                 <SlideInAnimation className='mb-3 flex w-fit items-center gap-2 rounded-lg border-[1.5px] border-solid border-primary-700 px-3 py-1'>
