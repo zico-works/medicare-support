@@ -64,6 +64,7 @@ const Services = () => {
                     <video
                       autoPlay
                       loop
+                      muted
                       className='size-full rounded-3xl'
                       height={100}
                       width={100}
@@ -71,6 +72,12 @@ const Services = () => {
                       <source
                         src={`/videos/${src}`}
                         type='video/mp4'
+                      />
+                      <track
+                        default
+                        kind='captions'
+                        label='English Captions'
+                        srcLang='en'
                       />
                     </video>
                   </div>
@@ -97,54 +104,54 @@ export const SERVICES = [
     title: 'Medicare',
     desc: 'We offer personalized health insurance solutions, ensuring you get the best coverage for your needs.',
     color: '#FEECED',
-    src: '1.mp4',
+    src: 'first.mp4',
   },
   {
     title: 'ACA - Obama Care',
     desc: 'Get access to affordable care through the ACA, ensuring coverage for all essential health benefits.',
     color: '#FEF8EC',
-    src: '2.mp4',
+    src: 'second.mp4',
   },
   {
     title: 'FE – Final Expense',
     desc: 'Our final expense plans ensure your loved ones are financially protected during tough times.',
     color: '#FEEBFF',
-    src: '3.mp4',
+    src: 'third.mp4',
   },
   {
     icon: 'doc.svg',
     title: 'SSDI',
     desc: 'We assist you in applying for Social Security Disability Insurance, securing your financial future.',
     color: '#EEF9FC',
-    src: '4.mp4',
+    src: 'fourth.mp4',
   },
   {
     icon: 'motor.svg',
     title: 'Auto Insurance',
     desc: 'Protect yourself and your vehicle with our reliable and comprehensive auto insurance policies.',
     color: '#EDF1FD',
-    src: '5.mp4',
+    src: 'fifth.mp4',
   },
   {
     icon: 'settle.svg',
     title: 'Debt Settlement',
     desc: 'Our debt settlement services help you manage and reduce your financial liabilities effectively.',
     color: '#FEF8EC',
-    src: '6.mp4',
+    src: 'sixth.mp4',
   },
   {
     icon: 'people.svg',
     title: 'U65 Health Insurance',
     desc: 'We offer specialized plans for those under 65, providing flexible and affordable coverage options.',
     color: '#DEFCF9',
-    src: '7.mp4',
+    src: 'seven.mp4',
   },
   {
     icon: 'tax.svg',
     title: 'Tax Debt',
     desc: 'Our experts help you navigate and resolve tax debt issues efficiently, easing your financial burden.',
     color: '#D8DBDF',
-    src: '8.mp4',
+    src: 'eight.mp4',
   },
 ];
 
