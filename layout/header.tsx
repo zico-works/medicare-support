@@ -5,14 +5,11 @@ import { Drawer } from '@/components/drawer';
 import Logo from '@/components/logo';
 import Modal from '@/components/modal';
 import { useStep } from '@/contexts/step-context';
-import useLenisScroll from '@/hooks/use-lenis-scroll';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const Header = () => {
   const { setShowModal } = useStep();
-
-  useLenisScroll();
 
   return (
     <header
@@ -35,9 +32,9 @@ const Header = () => {
             <span>
               <a
                 className='border-b border-solid border-[#07040E] font-semibold text-[#07040E]'
-                href='tel:555-555-5555'
+                href='tel:+13342474890'
               >
-                +440757 044-9180
+                +13342474890
               </a>
             </span>
           </p>
