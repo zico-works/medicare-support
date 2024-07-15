@@ -11,14 +11,14 @@ const PopularPlans = () => (
       <div className='container'>
         <SlideInAnimation
           as='p'
-          className='text-center text-[#ff2020]'
+          className='text-[#ff2020] md:text-center'
           delay={0.4}
         >
           Get an Insurance Quote!
         </SlideInAnimation>
         <SlideInAnimation
           as='h1'
-          className='pt-2 text-center font-bricolage text-3xl font-medium text-primary-600 sm:text-4xl lg:text-6xl'
+          className='pt-2 font-bricolage text-3xl font-medium text-primary-600 sm:text-4xl md:text-center lg:text-6xl'
           delay={0.5}
         >
           Popular Plans

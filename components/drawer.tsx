@@ -48,9 +48,9 @@ export function Drawer({ children }: { children: React.ReactNode }) {
               <span>
                 <a
                   className='font-semibold text-[#07040E] underline'
-                  href='tel:555-555-5555'
+                  href='tel:+13342474890'
                 >
-                  (316) 333-7001
+                  +1 (334) 247-4890
                 </a>
               </span>
             </p>
