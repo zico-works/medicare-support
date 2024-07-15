@@ -38,14 +38,14 @@ const Services = () => {
   }, [isMobile]);
 
   return (
-    <section id='services'>
+    <section className='max-lg:mb-10' id='services'>
       <div
         ref={container}
         className='relative max-sm:mt-10 lg:h-[300vh]'
       >
         <div className='sticky left-0 flex items-center overflow-hidden md:h-screen lg:top-10 2xl:h-[60vh]'>
           <motion.div
-            className='flex gap-4 max-md:flex-col'
+            className='flex gap-4 max-md:flex-col max-md:pl-3 max-md:pr-5'
             style={isMobile ? undefined : { x }}
           >
             {SERVICES.map(({ color, desc, src, title }, idx) => (
